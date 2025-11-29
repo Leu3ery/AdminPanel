@@ -1,4 +1,19 @@
-# Admin Panel for quest rooms
+# Admin Panel for Quest Rooms
+
+## About the Project
+
+Backend system for managing escape room experiences built with **Express.js**, **JavaScript**, **SQLite**, and **Sequelize** ORM.
+
+### Key Features
+
+1. **Admin Room Creation**: Admins create game rooms with specific games and locations
+2. **Client Registration**: Clients join rooms by entering room number and providing personal info with digital signature
+3. **Passport Generation**: System automatically generates printable client passports after game sessions
+4. **Client Portal**: Clients access their account to view game history, time spent, and game statistics
+
+### Technology Stack
+
+Express.js, JavaScript (Node.js), SQLite, Sequelize, JWT, Multer, Joi
 
 ## Environment Variables
 
@@ -31,17 +46,19 @@ npm install
 From the project root:
 
 ```
-cd src
-mkdir public
-node server.js
+npm install
+mkdir -p public
+node src/server.js
 ```
 
-The server will start on http://localhost:8000 by default.
+The server will start on http://localhost:8000 by default (or the port specified in your `.env` file).
 
 # API Documentation
 
-All API endpoints, schemas, and auth settings are defined in the swagger.yaml file at the project root. To view:
+All API endpoints are defined in `swagger.yaml`. Load it in Swagger UI or your preferred OpenAPI viewer.
 
-1. Open your preferred Swagger/OpenAPI viewer (e.g. Swagger UI).
+The API provides endpoints for admin, location, game, room, and client management, including file uploads for game icons and client photos.
 
-2. Load swagger.yaml from the project root.
+## Authentication
+
+The API uses JWT for authentication. Include the token in the `Authorization` header as `Bearer <token>` for protected routes. A super admin account is automatically created on server startup.

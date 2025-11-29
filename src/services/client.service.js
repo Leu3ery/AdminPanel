@@ -53,7 +53,7 @@ async function updateClient(adminid, clientId, value) {
     const client = await utils.findClient(clientId)
 
     if (value.photo) {
-        const photoPath = path.join(__dirname, "../public/", client.photo)
+        const photoPath = path.join(__dirname, "../../public/", client.photo)
         if (fs.existsSync(photoPath)) fs.unlinkSync(photoPath)
     }
     client.set(value)
@@ -66,7 +66,7 @@ async function deleteClient(adminid, clientId) {
     const client = await utils.findClient(clientId)
 
     if (client.photo) {
-        const photoPath = path.join(__dirname, "../public/", client.photo)
+        const photoPath = path.join(__dirname, "../../public/", client.photo)
         if (fs.existsSync(photoPath)) fs.unlinkSync(photoPath)
     }
 
@@ -175,7 +175,7 @@ async function deleteClientFromRoom(adminId, clientId, roomId) {
     }
 
     if (roomsClients.clientSignature) {
-        const photoPath = path.join(__dirname, "../public/", roomsClients.clientSignature)
+        const photoPath = path.join(__dirname, "../../public/", roomsClients.clientSignature)
         if (fs.existsSync(photoPath)) fs.unlinkSync(photoPath)
     }
     await roomsClients.destroy()

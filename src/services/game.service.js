@@ -38,7 +38,7 @@ async function deleteGameOnLocation(locationId, gameId, adminId) {
     const admin = await utils.findAdmin(adminId)
 
     if ((await location.hasGame(game) && await location.hasAdmin(admin)) || admin.isSuperAdmin) {
-        const iconPath = path.join(__dirname, '../public/', game.icon)
+        const iconPath = path.join(__dirname, '../../public/', game.icon)
         if (game.icon && fs.existsSync(iconPath)) {
             fs.unlinkSync(iconPath)
         }
@@ -54,7 +54,7 @@ async function updateGameOnLocation(locationId, gameId, adminId, value) {
     const admin = await utils.findAdmin(adminId)
 
     if ((await location.hasGame(game) && await location.hasAdmin(admin)) || admin.isSuperAdmin) {
-        const iconPath = path.join(__dirname, '../public/', game.icon)
+        const iconPath = path.join(__dirname, '../../public/', game.icon)
         if (value.icon && fs.existsSync(iconPath)) {
             fs.unlinkSync(iconPath)
         }
